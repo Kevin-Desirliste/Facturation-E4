@@ -1,0 +1,62 @@
+/*--------- Facturation ---------*/
+label {
+display: block;
+    font: .9rem 'Fira Sans', sans-serif;
+    font-family: 'lobster', cursive ;
+    font-size: 25px ;
+    text-align: center;
+    color: orange; 
+    font-weight: bold;
+    font-style: italic;
+    text-shadow: 2px 3px 5px rgba(0,0,0,0.3);
+}
+
+
+
+
+input[type='text']
+{
+    width: 30%;
+    padding: 9px 20px;
+    margin:  8px;
+    display: inline-block;
+    border : 1px solid #ccc;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+input[type='submit'] 
+{
+  width: 30%;
+  padding: 9px 20px;
+  margin:  8px;
+  color: black;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-family: 'lobster', cursive ;
+}
+
+input:hover[type='submit']  
+{
+  background-color: orange;
+  border: 1px solid #FFA500;
+}
+
+
+
+
+
+h2 {
+  text-align: center;
+}
+
+
+
+/****************************footer************************/
+footer {width:950px; overflow:hidden; margin:0 auto; padding: padding:31px 0px 20px 0; }
+footer p {float:bottom; text-align:center; width:580px; }
+.soc-icons {overflow:hidden; float:right; margin:8px 73px 0 0;}
+.soc-icons span {display:inline-block; float:left;  color:#000; font-size:20px; line-height:27px; margin-right:17px;}
+.soc-icons a {display:inline-block; float:left; margin-right:19px;}
+.soc-icons a:hover img {opacity:0.7;}

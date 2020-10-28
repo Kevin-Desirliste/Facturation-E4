@@ -1,0 +1,135 @@
+/*--------- Facturation ---------*/
+label {
+display: block;
+    font: .9rem 'Fira Sans', sans-serif;
+    font-family: 'lobster', cursive ;
+    font-size: 25px ;
+    color: orange; 
+    font-weight: bold;
+    font-style: italic;
+    text-shadow: 2px 3px 5px rgba(0,0,0,0.3);
+}
+
+.hôtel
+{
+  text-align: left;
+  margin-left: 5%;
+}
+
+.personne
+{
+  text-align: right;
+  margin-right: 5%;
+
+}
+
+.numero {
+  text-align: right;
+  margin-right: 5%;
+}
+
+
+
+
+input[type='button'] 
+{
+  width: 30%;
+  padding: 9px 20px;
+  margin:  8px;
+  color: black;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-family: 'lobster', cursive ;
+}
+
+input:hover[type='button']  
+{
+  background-color: orange;
+  color: whiye;
+  border: 1px solid #FFA500;
+}
+
+
+
+table {
+    margin-top:30%;
+    margin:auto;
+    border-collapse: collapse;
+    width: 90%;
+}
+
+tr
+{
+  border: 1px solid black;
+  width:20%;
+}
+
+th
+{
+  border: 1px solid black;
+  width:20%;
+}
+
+td
+{
+  text-align: center;
+  border: 1px solid black;
+  width:20%;
+}
+
+
+
+h1
+{
+  text-align: center;
+}
+
+
+
+li
+{
+  width: 30%;
+  padding: 9px 20px;
+  margin:  auto;
+  color: black;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-family: 'lobster', cursive ;
+  text-decoration: none;
+  text-align:center;
+  float:center;
+}
+
+
+
+li:hover
+{
+    background-color: orange;
+  color: whiye;
+  border: 1px solid #FFA500;
+}
+
+.image1
+{
+  text-align:center;
+  height:210px;
+  width:90%;
+}
+
+.prestation
+{
+  text-align:center;
+  font-weight: bold;
+  font-style: italic;
+  font: .9.5rem 'Fira Sans', italic;
+}
+
+/****************************footer************************/
+footer {width:950px; overflow:hidden; margin:0 auto; padding:31px 0px 20px 0; float:bottom; }
+footer p {float:bottom; text-align:center; width:580px; }
+.soc-icons {overflow:hidden; float:right; margin:8px 73px 0 0;}
+.soc-icons span {display:inline-block; float:bottom;  color:#000; font-size:20px; line-height:27px; margin-right:17px;}
+.soc-icons a {display:inline-block; float:left; margin-right:19px;}
+.soc-icons a:hover img {opacity:0.7;}
