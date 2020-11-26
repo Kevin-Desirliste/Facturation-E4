@@ -47,14 +47,7 @@
 		}
 }
 	
-
-
-
-	
-
 ?>
-
-
 <br>
  <div id="slide">
     <div class="slider">
@@ -69,11 +62,9 @@
      </div>
   </div>
 	
-
 <footer>
 <?php include_once $racine .'/facturation/include/footer.php' ?>
 </footer>
-
 
 </body>
 </html>

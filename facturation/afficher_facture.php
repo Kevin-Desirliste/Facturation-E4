@@ -24,13 +24,10 @@
 	}
 </script>
 
-
 <div id="section_a_imprimer">
-
 
 <!-- Image -->
 <img class="image1" src="/facturation/img/borabora.jpeg">
-
 
 <!-- En tête de la facture -->
 <h2 class="hôtel">HOTEL BORABORA</h2>
@@ -63,10 +60,11 @@
 }
 
 
-
-
 //Connexion à la base de données
 $connex=connexion_bd();
+
+//Définition de la variable 
+$req_total = 0;
 
 // récupération du nom du client
 $req_client = "SELECT nom_client, prenom_client 
@@ -79,7 +77,6 @@ $req_client = "SELECT nom_client, prenom_client
 
 $res_client=$connex->query($req_client);
 verif_erreur_mysql($res_client,$connex);
-
 
 if ($ligne=$res_client->fetch(PDO::FETCH_NUM)) {
   $nom=$ligne[0];
@@ -161,17 +158,14 @@ verif_erreur_mysql($res_brasserie,$connex);
 
 <?php
 
-
-
 // Numéro de chambre
 echo "<h2 class='numero'>Chambre : ".$_POST['numero_chambre']."</h2>";
 ?>
 
 <br><br>
 
-<!-- tableau contenant de les informations de la facture -->
+<!-- tableau contenant les informations de la facture -->
 <?php
-
 
 if ($ligne=$res_chambre->fetch(PDO::FETCH_NUM)) {
   $date_arrivee=$ligne[0];
@@ -180,8 +174,6 @@ if ($ligne=$res_chambre->fetch(PDO::FETCH_NUM)) {
   $nombre_pers=$ligne[3]; 
   $prixChambre=$ligne[4];
   $prix = $ligne[5];
-
-
 
   echo "<table>
 	
@@ -210,16 +202,14 @@ else
 }
 
 // Ligne du tableau affichant les informations concernant le spa
-
+$totalSpa = 0;
 while ($ligne=$res_spa->fetch(PDO::FETCH_NUM)) {
   $date_spa=$ligne[0];
   $libelle_soin=$ligne[1];
   $quantite_spa=$ligne[2];
   $prix_soin=$ligne[3]; 
   $prixtotal_spa=$ligne[4]; 
-
-	  
-
+  $totalSpa=$totalSpa+$prixtotal_spa;  
       echo "<tr>
        		<td>".$date_spa."</td>",
        		"<td>SPA - ".$libelle_soin."</td>",
@@ -230,17 +220,15 @@ while ($ligne=$res_spa->fetch(PDO::FETCH_NUM)) {
 }
 
 // Ligne du tableau affichant les informations concernant le bar
-
 // Boucle pour récupérer les informations sur le bar 
+$totalBar = 0;
 while ($ligne=$res_bar->fetch(PDO::FETCH_NUM)) {
   $date_bar=$ligne[0];
   $libelle_consommation=$ligne[1];
   $quantite_consommation=$ligne[2];
   $prix_consommation=$ligne[3]; 
   $prixtotal_bar=$ligne[4]; 
-
-
-	
+  $totalBar=$totalBar+$prixtotal_bar;
 // Afficher dans un tableau les informations concernant le bar selon le numéro de chambre saisi
 	echo "<tr>
        		<td>".$date_bar."</td>",
@@ -251,15 +239,17 @@ while ($ligne=$res_bar->fetch(PDO::FETCH_NUM)) {
        		"</tr><br>";
 
 }
-// Ligne du tableau affichant les informations concernant la brasserie
 
+// Ligne du tableau affichant les informations concernant la brasserie
 // Boucle pour récupérer les informations sur le bar 
+$totalBrasserie = 0;
 while ($ligne=$res_brasserie->fetch(PDO::FETCH_NUM)) {
   $date_brasserie=$ligne[0];
   $libelle_plat=$ligne[1];
   $quantite_plat=$ligne[2];
   $prix_brasserie=$ligne[3]; 
-  $prixtotal_brasserie=$ligne[4]; 
+  $prixtotal_brasserie=$ligne[4];
+  $totalBrasserie=$totalBrasserie+$prixtotal_brasserie; 
 
 // Afficher dans un tableau les informations concernant la brasserie selon le numéro de chambre saisi
 
@@ -275,8 +265,6 @@ while ($ligne=$res_brasserie->fetch(PDO::FETCH_NUM)) {
 
 ?>
 
-
-
 </table>
 
 <br>
@@ -286,7 +274,7 @@ while ($ligne=$res_brasserie->fetch(PDO::FETCH_NUM)) {
 <?php
 
 // On calcule le montant total de la facture
-$req_total=$prix+$prixtotal_spa+$prixtotal_bar+$prixtotal_brasserie;
+$req_total=$prix+$totalSpa+$totalBar+$totalBrasserie;
 
 
 
@@ -305,10 +293,6 @@ $req_total=$prix+$prixtotal_spa+$prixtotal_bar+$prixtotal_brasserie;
 <form>
 	<br><input class="impression" type="button" value="Imprimer" onclick="imprimer('section_a_imprimer')"></br>
 </form>
-
-
-
-
 
 <!-- footer -->
 <footer>
